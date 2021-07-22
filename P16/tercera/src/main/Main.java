@@ -51,14 +51,27 @@ public class Main {
             return true;
         }
         
-    }   
+    }
+    
+    public static double pagoFinal(double precio, int cantidad) {
+        if (cantidad < 5){
+            return precio * cantidad;
+        } else if (cantidad < 10 ){
+            return precio * cantidad *0.95;
+        } else if (cantidad < 20 ){
+            return precio * cantidad *0.9;
+        } else{
+            return precio * cantidad * 0.8;
+        }
+            
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         
-//        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 //        System.out.print("Ingrese un número: "); 
 //        double num1 = sc.nextDouble();
 //        System.out.print("Ingrese un número: ");
@@ -67,7 +80,13 @@ public class Main {
 //        System.out.println("El valor máximo es: "+ max(num1,num2));
 //        imprimirNumSigno(num1);
         
-        System.out.println("condicional "+condicional(true, true));
+//        System.out.println("condicional "+condicional(true, true));
+        
+        System.out.print("Ingrese el precio: "); 
+        double precio = sc.nextDouble();
+        System.out.print("Ingrese la cantidad: ");
+        int cantidad = sc.nextInt();
+        System.out.println("El precio total es: "+ pagoFinal(precio, cantidad) );       
         
     }
     
