@@ -12,6 +12,45 @@ import java.util.Scanner;
  * @author leobusta
  */
 public class Ciclicas {
+    
+    public static double minMaquina() {
+        double Xo = 1.0;
+        double Xi = Xo / 2.0;
+        while (Xi > 0.0) {
+            //System.out.println(Xi);
+            Xo = Xi;
+            Xi = Xo / 2.0;
+        }
+        return Xo;
+    }
+
+    public static double minMaquina2() {
+        double Xo = 1.0;
+        double Xi = Xo / 2;
+        do {
+            Xo = Xi;
+            Xi = Xo / 2.0;
+        } while (Xi > 0.0);
+        
+        return Xo;
+    }
+    
+    public static void suma() {
+        Scanner sc = new Scanner(System.in);
+        int suma = 0;
+        while (true) {
+            System.out.print("Ingrese un número entero ");
+            System.out.println("a sumar o 0 para salir: ");
+            //int dato = Integer.parseInt(sc.nextLine());
+            int dato = sc.nextInt();
+            if (dato == 0) {
+                break;
+            }
+            suma += dato;
+        }
+        System.out.println("La suma es: " + suma);
+    }  
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 //        
@@ -20,16 +59,7 @@ public class Ciclicas {
 //            System.out.println(i);
 //            i = i + 1;
 //        }
-        int i = 2; // inicializa a i en 2
-        int j = 25; // inicializa a j en 25
-        while (i < j) { // mientras i sea menor a j
-            // imprime los valores de i y j
-            System.out.println(i + ", " + j);
-            i = i * 2; // i se mult´ıplica por 2 en cada paso
-            j = j + 10; // se incrementa de 10 en 10
-        }
-// se ejecuta al terminar el ciclo
-        System.out.println("the end.");
-        System.out.println(i + ", " + j);// valores finales de i y j
+//        System.out.println(minMaquina2());
+          suma();
     }
 }
