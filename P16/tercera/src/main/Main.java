@@ -54,16 +54,34 @@ public class Main {
     }
     
     public static double pagoFinal(double precio, int cantidad) {
-        if (cantidad < 5){
+        if (cantidad <= 5){
             return precio * cantidad;
-        } else if (cantidad < 10 ){
+        } else if (cantidad <= 10 ){
             return precio * cantidad *0.95;
-        } else if (cantidad < 20 ){
+        } else if (cantidad <= 20 ){
             return precio * cantidad *0.9;
-        } else{
+        } else {
             return precio * cantidad * 0.8;
         }
             
+    }
+    
+    public  static boolean esVocalMin(char ch){
+        boolean vocal;
+        switch (ch){
+            case 'a': 
+            case 'e': 
+            case 'i': 
+            case 'o': 
+            case 'u': 
+                vocal = true;
+                break;
+            default: 
+                vocal = false; 
+                break;
+
+        }
+        return vocal;
     }
     /**
      * @param args the command line arguments
@@ -82,12 +100,13 @@ public class Main {
         
 //        System.out.println("condicional "+condicional(true, true));
         
-        System.out.print("Ingrese el precio: "); 
-        double precio = sc.nextDouble();
-        System.out.print("Ingrese la cantidad: ");
-        int cantidad = sc.nextInt();
-        System.out.println("El precio total es: "+ pagoFinal(precio, cantidad) );       
+//        System.out.print("Ingrese el precio: "); 
+//        double precio = sc.nextDouble();
+//        System.out.print("Ingrese la cantidad: ");
+//        int cantidad = sc.nextInt();
+//        System.out.println("El precio total es: "+ pagoFinal(precio, cantidad) );
         
+        System.out.println("Es vocal: "+esVocalMin('e'));        
     }
     
 }

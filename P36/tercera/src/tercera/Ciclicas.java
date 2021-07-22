@@ -25,16 +25,16 @@ public class Ciclicas {
     }
     
     public static void  menu(){
-        int opc = 4;
+        int opc = 0;
         Scanner sc = new Scanner(System.in);
-        do {
+        while(opc != 4) {
             System.out.println("1. Crear usuario");
             System.out.println("2. Editar usuario");
             System.out.println("3. Buscar usuario");
             System.out.println("4. Salir");
             opc = sc.nextInt();
             
-        }while(opc != 4);
+        }
     }
     
     
