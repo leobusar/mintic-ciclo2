@@ -42,6 +42,33 @@ public class Tercera {
             return true;
     }
     
+    public static double pagoFinal (double precio, int cantidad){
+        if (cantidad <= 5)
+            return precio * cantidad; 
+        else if (cantidad <= 10)
+            return precio * cantidad * 0.95;
+        else if (cantidad <= 20)
+            return precio * cantidad * 0.9;
+        else
+            return precio * cantidad * 0.8;
+    }
+    
+    public static boolean esVocalMinuscula(char ch){
+        boolean result;
+        switch(ch){
+            case 'a': 
+            case 'e': 
+            case 'i': 
+            case 'o': 
+            case 'u': 
+                result = true;
+                break;
+            default: 
+                result = false;
+                break;
+        }
+        return result;
+    }
     /**
      * @param args the command line arguments
      */
@@ -55,7 +82,7 @@ public class Tercera {
 //        System.out.println("El valor máximo es: "+ max(numero1, numero2));
 //        System.out.print("El número con signo es: ");
 //        imprimirNum(numero1);
-          System.out.println(condicional(false, false));
+          System.out.println(esVocalMinuscula('e'));
          
     }
     
