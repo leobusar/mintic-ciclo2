@@ -85,7 +85,7 @@ public class Cuarta {
     public static void imprimirMatriz(int[][] X) {
         for (int i = 0; i < X.length; i++) {   
             for (int j = 0; j < X[i].length; j++) {
-                System.out.print(" "+(X[i][j]));
+                System.out.print(String.format("%5d ",X[i][j]));
             }
             System.out.println("");
         }
@@ -118,7 +118,7 @@ public class Cuarta {
         int[][] matriz =  {{3,4,2},{4,3,1},{2,1,0}};
         imprimirMatriz(matriz);
         int[][] cuadrados = cuadrados_matriz(matriz);
-        //imprimirMatriz(cuadrados);
+        imprimirMatriz(cuadrados);
         System.out.println(matriz_simetrica(matriz));
 //        double[] arr = {1.3,1.4,1.2,5.1};
 //        System.out.println(pos_maximo(arr));

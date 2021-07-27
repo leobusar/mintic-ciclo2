@@ -15,8 +15,8 @@ import java.util.Scanner;
  */
 public class Ejercicios {
     
-    public static int factorial( int n){
-        int fact = 1;
+    public static long factorial( int n){
+        long fact = 1;
         for(int i = 1; i <= n; i++){
             fact *= i;
             //System.out.println("factorial de "+i+" es "+fact);
@@ -24,11 +24,11 @@ public class Ejercicios {
         return fact;
     }
     
-    public static int pow( int n, int exp){
-        int pot = 1;
+    public static double pow( double n, int exp){
+        double pot = 1;
         for(int i = 1; i <= exp; i++){
             pot *= n;
-            //System.out.println(n+" elevado a "+i+" es "+pot);        
+            System.out.println(n+" elevado a "+i+" es "+pot);        
         }
         return pot;
     }
@@ -45,8 +45,10 @@ public class Ejercicios {
       public static double sin(int x, int n) {
         double  suma = 0; 
         for (int i=0; i <= n; i++){
+            //suma += (double)(pow(-1,i)*pow(x, 2*i+1)) / factorial(2*i+1);
             suma += (double)(pow(-1,i)*pow(x, 2*i+1)) / factorial(2*i+1);
-            System.out.println(suma);
+
+            //System.out.println(suma);
         }
         return suma;
     }
@@ -59,11 +61,11 @@ public class Ejercicios {
 //        System.out.println("Ingrese el exponente: ");
 //        int exp = sc.nextInt();
 //        
-//        int fact = factorial(n);
-//        System.out.println("factorial de "+n+" es "+fact);
+          double fact = factorial(19);
+          System.out.println("factorial de  es "+fact);
 //
 //        int potencia = pow(n, exp);
 //        System.out.println(n+" elevado a "+exp+" es "+potencia);
-          System.out.println("resultado:"+ sin(45,10));
+          System.out.println("resultado:"+ sin(5,9));
     }   
 }
