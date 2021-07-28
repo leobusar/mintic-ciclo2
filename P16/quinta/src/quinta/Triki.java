@@ -41,21 +41,29 @@ public class Triki {
     }
     
     public void verificarGanador(){
-        if (this.tablero[0][0] != 'a' && this.tablero[0][0] == this.tablero[1][1] && this.tablero[0][0] == this.tablero[2][2])
+        boolean hayGanador = false;
+        if (this.tablero[0][0] != 'a' && this.tablero[0][0] == this.tablero[1][1] && this.tablero[0][0] == this.tablero[2][2]){
             System.out.println("El ganador es "+ this.tablero[0][0]);
-        else if(this.tablero[2][0] != 'a' && this.tablero[2][0] == this.tablero[1][1] && this.tablero[2][0] == this.tablero[0][2])
+            hayGanador = true;
+        }else if(this.tablero[2][0] != 'a' && this.tablero[2][0] == this.tablero[1][1] && this.tablero[2][0] == this.tablero[0][2]){
             System.out.println("El ganador es "+ this.tablero[2][0]);
-        else {
+            hayGanador = true;
+        }else {
             for(int i=0; i < tablero.length; i++){
                 if(this.tablero[i][0] != 'a' && this.tablero[i][0] == this.tablero[i][1] && this.tablero[i][0] == this.tablero[i][2]){
                     System.out.println("El ganador es "+ this.tablero[i][0]);
+                    hayGanador = true;
                     break;
                 } 
                 if(this.tablero[0][i] != 'a' && this.tablero[0][i] == this.tablero[1][i] && this.tablero[0][i] == this.tablero[2][i]){
                     System.out.println("El ganador es "+ this.tablero[i][0]);
+                    hayGanador = true;
                     break;
                 }                 
             }
+            if (!hayGanador)
+                System.out.println("No hay ganador");
+            
         }
 
     }

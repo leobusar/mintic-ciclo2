@@ -30,11 +30,17 @@ public class Quinta {
 
 //        nuevoJuego.imprimirJuego();
         nuevoJuego.marcarCasilla('X', 2, 2);
-        nuevoJuego.marcarCasilla('O', 2, 2);
+        //nuevoJuego.marcarCasilla('O', 2, 2);
         nuevoJuego.imprimirJuego();
-        
-
-        
+        nuevoJuego.marcarCasilla('X', 1, 1);
+        nuevoJuego.imprimirJuego();
+        nuevoJuego.marcarCasilla('O', 0, 1);
+        nuevoJuego.imprimirJuego();
+        nuevoJuego.verificarGanador();
+        nuevoJuego.marcarCasilla('X', 0, 0);
+        nuevoJuego.imprimirJuego();
+        nuevoJuego.verificarGanador();
+       
     }
     
 }
