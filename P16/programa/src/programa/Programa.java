@@ -94,12 +94,18 @@ public class Programa {
                     agregarProfesor(profe);
                     break;
                 case 3:
-                    listarMiembros();
-                    
+                    listarMiembros();                    
                     break;
                 case 4: 
                     System.out.println("Saliendo");
                     return;
+                case 5:
+                    int sem = ((Estudiante) personas[0]).getSemestre();
+                    System.out.println("");
+                    
+                    break;
+                default: 
+                    System.out.println("Opción inválida");
             }
             
         }while(opc !=4);    
