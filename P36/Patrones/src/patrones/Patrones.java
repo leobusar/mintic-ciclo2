@@ -26,11 +26,18 @@ public class Patrones {
         
 //            String a = "101";
 //            int b = 1/0 ;
-        Pareja<Integer, String> pareja = new Pareja<>(20, "Pedro P´aramo");
-        System.out.println(pareja);
-        Integer c = pareja.clave() + 10;
-        System.out.println(c);
-        System.out.println(pareja.valor().charAt(2));
+//        Pareja<Integer, String> pareja = new Pareja<>(20, "Pedro P´aramo");
+//        System.out.println(pareja);
+//        Integer c = pareja.clave() + 10;
+//        System.out.println(c);
+//        System.out.println(pareja.valor().charAt(2));
+          ArrayList <Integer> test = new ArrayList<>();
+          
+          test.add(1); 
+          test.add(2);
+          test.add(4);
+          test.remove((Integer)1);
+          System.out.println(test);
     }
     
 }
