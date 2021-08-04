@@ -48,7 +48,9 @@ public class Programa {
         System.out.println("Facultad:"+facultad);
         for(int i=0; i < n; i++){
             //System.out.println(this.miembros[i]);
-            System.out.println("nombre: "+this.miembros[i].getNombre());
+            
+            System.out.println("nombre: "+this.miembros[i]);
+
         }
       
     }

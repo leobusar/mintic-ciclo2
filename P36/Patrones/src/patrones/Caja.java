@@ -9,7 +9,7 @@ package patrones;
  *
  * @author leobusta
  */
-public class Caja <T>{ 
+public class Caja <T>{
     private T obj;
 
     public Caja(T obj) {
@@ -19,17 +19,16 @@ public class Caja <T>{
     public T getObj() {
         return obj;
     }
-     
+    
     public String decorar() {
         String s = this.obj.toString();
-        String linea = "#";
+        String linea = "*";
         for (int i = 0; i < s.length(); i++) {
-            linea += "#";
+            linea += "*";
         }
-        linea += "#";
-        return linea + "\n#" + s + "#\n" + linea;
-    }
-    
+        linea += "*";
+        return linea + "\n*" + s + "*\n" + linea;
+    }    
 //    public String decorar(int n) {
 //        String s = "" + n;
 //        String linea = "*";
@@ -39,9 +38,8 @@ public class Caja <T>{
 //        linea += "*";
 //        return linea + "\n*" + s + "*\n" + linea;
 //    }
-//
-//    public String decorar(double x) {
-//        String s = "" + x;
+//    public String decorar(double n) {
+//        String s = "" + n;
 //        String linea = "*";
 //        for (int i = 0; i < s.length(); i++) {
 //            linea += "*";
@@ -49,14 +47,12 @@ public class Caja <T>{
 //        linea += "*";
 //        return linea + "\n*" + s + "*\n" + linea;
 //    }
-//
-//    public String decorar(String cad) {
-//        String s = "" + cad;
+//    public String decorar(String s) {
 //        String linea = "*";
 //        for (int i = 0; i < s.length(); i++) {
 //            linea += "*";
 //        }
 //        linea += "*";
 //        return linea + "\n*" + s + "*\n" + linea;
-//    }    
+//    }       
 }
