@@ -20,6 +20,38 @@ import java.util.logging.Logger;
  */
 public class Crud {
 
+    public static  void delete(Connection conn){
+        try {
+            String sql = "DELETE FROM libro WHERE libId =?";
+            PreparedStatement statement
+                    = conn.prepareStatement(sql);
+            statement.setInt(1, 1010);
+            int rowsDeleted = statement.executeUpdate();
+            if (rowsDeleted > 0) {
+                System.out.println(" Borrado exitoso !");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Crud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    public static void update(Connection conn){
+        try {
+            String sql = " UPDATE libro SET libNombre =?, libPub =? , libPrecio =? WHERE  libId=?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1 , "Crónica de una muerte anunciada ");
+            statement.setInt(2, 1981);
+            statement.setDouble(3, 100000.0);
+            statement.setInt(4, 1010);
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("El registro fue "
+                        + " actualizado exitosamente !");    
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Crud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void select(Connection conn){
         try {
             String sql = "SELECT * FROM libro ";
@@ -73,6 +105,8 @@ public class Crud {
             if (conn != null) {
                 System.out.println("Conectado");
                 //insert(conn);
+                //update(conn);
+                delete(conn);
                 select(conn);
             }
         } catch (SQLException ex) {
