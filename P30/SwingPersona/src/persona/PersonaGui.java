@@ -5,12 +5,14 @@
  */
 package persona;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -38,6 +40,7 @@ public class PersonaGui extends JFrame{
     JRadioButton radioButtonM;
     JRadioButton radioButtonF;
     JComboBox comboBoxOcupacion;
+    JPanel listadoPanel;
     
     
     PersonaGui(Inscripciones  app){
@@ -137,10 +140,12 @@ public class PersonaGui extends JFrame{
                                         15, 15);       //xPad, yPad        
         // Sirve de panel principal de la ventana
 
-
-        setContentPane(panel);
-        
+        JPanel panelPrincipal = new JPanel();
+        setContentPane(panelPrincipal);
+        panelPrincipal.add(panel);
+        listadoPanel = new Listado(app.getPersonas(), "");
         // Adjusta el tamaño de la ventana para que quepan todos los componentes
+        panelPrincipal.add(listadoPanel);
         pack();
         //setSize(800, 600);
         

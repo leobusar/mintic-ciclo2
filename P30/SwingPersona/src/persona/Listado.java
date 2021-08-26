@@ -10,13 +10,14 @@ package persona;
  */
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class Listado extends JFrame {
+public class Listado extends JPanel {
 
     public Listado(ArrayList<Persona> personas, String title) {
-        setTitle(title);
+//        setTitle(title);
         System.out.println(personas);
         String[] encabezados = {"Nombre", "Edad", "Genero", "Email", "Ocupacion"};
         String[][] valores = new String[personas.size()][encabezados.length];
@@ -30,7 +31,9 @@ public class Listado extends JFrame {
         JTable table = new JTable(valores, encabezados);
         JScrollPane jsp = new JScrollPane(table);
         add(jsp);
-        pack();
-        setVisible(true);
+//        pack();
+//        setVisible(true);
     }
+    
+    
 }

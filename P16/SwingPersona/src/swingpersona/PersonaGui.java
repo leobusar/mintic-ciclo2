@@ -123,7 +123,7 @@ public class PersonaGui extends JFrame{
                                         15, 15);  //xPad, yPad
         
 
-
+//        JPanel panelPrincipal = new JPanel(new GridLayout(0,1));
         setContentPane(panelPrincipal);
         add(panel);
         // Adjusta el tamaño de la ventana para que quepan todos los componentes
