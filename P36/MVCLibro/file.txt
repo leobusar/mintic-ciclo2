@@ -1,0 +1,11 @@
+ID, Título, Año, Precio
+1001,Cien años de soledad,1967,100000.0
+1002,La Vorágine,1924,110000.0
+1003,María,1867,8000.0
+1004,Condores no entierran todos los días,1971,80000.0
+1005,El renacuajo paseador 6,1867,60000.0
+1006,El olvido que seremos,2005,150000.0
+1007,El camino del arquero,2017,130000.0
+1008,El amor en los tiempos del cólera,1985,100000.0
+1016,Cronica de una muerte anunciada,1979,35000.0
+1017,El principito,1955,35000.0
