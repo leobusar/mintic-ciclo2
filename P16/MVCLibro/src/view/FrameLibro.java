@@ -8,6 +8,7 @@ package view;
 import controller.LibroController;
 import dao.ILibroDAO;
 import dao.LibroDAOJDBCImpl;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -18,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
@@ -34,6 +36,8 @@ public class FrameLibro extends JFrame {
     JTextField txtLibPub;
     JTextField txtLibPrecio;
     LibroController controller;
+    PanelLibros panelListado;
+    boolean editar = false;
    
     FrameLibro(){
         ILibroDAO dao = new LibroDAOJDBCImpl();
@@ -115,7 +119,30 @@ public class FrameLibro extends JFrame {
                                         15, 15,        //initX, initY
                                         15, 15);       //xPad, yPad        
         // Sirve de panel principal de la ventana
-        setContentPane(panel);
+        JPanel  panelPrincipal = new JPanel();
+        setContentPane(panelPrincipal);
+        panelPrincipal.add(panel);
+        panelListado = new  PanelLibros(controller);
+
+        panelBtn = new JPanel();
+        JButton btnEditar = new JButton("Editar");
+        panelBtn.add(btnEditar);
+        JButton btnEliminar = new JButton("Eliminar");
+        panelBtn.add(btnEliminar);
+        panelListado.add(panelBtn, BorderLayout.PAGE_END);
+
+        btnEliminar.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0){
+                btnEliminarClick();
+            }
+        }); 
+        btnEditar.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0){
+                btnEditarClick();
+            }
+        });           
+        panelPrincipal.add(panelListado);
+        
         pack();
         // Permite ubicar la ventana en el centro de la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -135,21 +162,50 @@ public class FrameLibro extends JFrame {
             int libPub = Integer.parseInt(txtLibPub.getText());
             double libPrecio = Double.parseDouble(txtLibPrecio.getText());
             Libro  libro = new Libro(libId, libNombre, libPub, 1, 1, libPrecio);
-            controller.agregarLibro(libro);
+            if(!editar)
+                controller.agregarLibro(libro);
+            else
+                controller.actualizarLibro(libro);
+            btnClearClick();
+            editar = false;
+            panelListado.cargarLibros();
+
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Ingresa los valores correctos");
         }
     }
     
     private void btnClearClick(){
-        System.out.println("Implementar");
-    
+        txtLibId.setText(null);
+        txtLibNombre.setText(null);
+        txtLibPub.setText(null);
+        txtLibPrecio.setText(null);    
     }
     private void btnListarClick(){
-        System.out.println("Implementar");
-    
+        panelListado.cargarLibros();
     }
-    
+
+    private void btnEliminarClick(){
+        int  selected = panelListado.getTable().getSelectedRow();
+        if (selected != -1){
+            String selectedCellValue = (String) panelListado.getTable().getValueAt(selected,0);
+            //System.out.println(selectedCellValue);
+            controller.eliminarLibro(Integer.parseInt(selectedCellValue));
+            panelListado.cargarLibros();
+        }
+            
+    }
+    private void btnEditarClick(){
+        int  selected = panelListado.getTable().getSelectedRow();
+        JTable table = panelListado.getTable();
+        if (selected != -1){
+            txtLibId.setText((String) table.getValueAt(selected, 0));
+            txtLibNombre.setText((String) table.getValueAt(selected, 1));
+            txtLibPub.setText((String) table.getValueAt(selected, 2));
+            txtLibPrecio.setText((String) table.getValueAt(selected, 3));
+            editar = true;
+        }        
+    }    
     public  static void main(String[] args){
         new FrameLibro();
     }   

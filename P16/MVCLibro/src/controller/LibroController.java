@@ -6,6 +6,8 @@
 package controller;
 
 import dao.ILibroDAO;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import model.Libro;
 
 /**
@@ -29,5 +31,22 @@ public class LibroController {
 
     public void  eliminarLibro(int id){
         libroDAO.eliminarLibro(id);
+    }
+    
+    public DefaultTableModel consultarLibros(){
+        String[] titulos  = {"Id", "Título", "Año", "Precio"};
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        
+        List<Libro> libros = libroDAO.obtenerLibros();
+        for(Libro libro: libros){
+            String[] registro = new String[4];
+            registro[0] = libro.getLibId() +"";
+            registro[1] = libro.getLibNombre();
+            registro[2] = libro.getLibPub() +"";
+            registro[3] = libro.getPrecio() +"";
+            modelo.addRow(registro);
+        }
+        
+        return modelo;
     }
 }
